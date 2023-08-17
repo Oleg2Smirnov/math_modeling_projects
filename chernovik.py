@@ -23,12 +23,11 @@ def ellips1(A, B, C, D):
     x3 = C * np.cos(phi) - 0.7
     y3 = D * np.sin(phi + 20/180*np.pi) - 1.35 + 0.2*np.sin(phi + 20/180*np.pi)
 
-    plt.plot(x2, y2, label='ellips1', color='k')
-    plt.plot(x3, y3, label='ellips2', color='k')
-    plt.legend()
+    plt.plot(x2, y2, ',', color='k', )
+    plt.plot(x3, y3, ',', color='k')
     plt.xlabel('x - coord')
     plt.ylabel('y - coord')
     plt.savefig('chernovik.png')
 
-for j in np.linspace(0, 2, 100):
+for j in np.linspace(0, 2, 500):
     ellips1(j, j/1.05, j/2.5, j/5)
