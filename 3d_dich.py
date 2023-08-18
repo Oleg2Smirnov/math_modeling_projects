@@ -18,7 +18,6 @@ def ellips1(A, B):
             n += 1
         else:
             n += 1
-
     ax.plot_surface(x2, y2, z2)
     plt.savefig('3d_dich.png')
 
