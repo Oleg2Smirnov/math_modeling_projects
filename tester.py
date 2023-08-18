@@ -13,7 +13,7 @@ ax = fig.add_subplot(projection='3d')
 n = 0
 N = 1000
 xs, ys, zs = [], [], []
-phi = np.linspace(0, 2*np.pi, 1000)
+phi = np.linspace(0, 2*np.pi, N)
 for m, zlow, zhigh in [(',', -1, 1)]:
     xss = randrange(N, -3.7*np.cos(phi), 3.7*np.cos(phi))
     yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
