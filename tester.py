@@ -12,7 +12,7 @@ ax = fig.add_subplot(projection='3d')
 n = 0
 k = 0
 a = 0
-N = 2000
+N = 1000
 xs, ys, zs = [], [], []
 x1, y1, z1 = [], [], []
 x2, y2, z2 = [], [], []
@@ -53,11 +53,11 @@ for m, zlow, zhigh in [(',', -1, 1)]:
     z2s = randrange(N, zlow, zhigh)
     for i in x2s:
         if y2s[k]/(0.35-x2s[k]) <= 2.6/0.35:
-            x2.append((x2s[k])*np.cos(2.13)-2.9)
-            y2.append((y2s[k])*np.sin(2.13)-1.8)
+            x2.append((x2s[k]**2+y2s[k]**2)**0.5*np.cos(np.arctan(y2s[k]/x2s[k])+2.13)-2.9)
+            y2.append((x2s[k]**2+y2s[k]**2)**0.5*np.sin(np.arctan(y2s[k]/x2s[k])+2.13)-1.8)
             z2.append(z2s[k])
 
-            x3.append(-x2s[k]*np.cos(2.0577)-1.9)
+            x3.append(x2s[k]*np.cos(2.0577)-1.9)
             y3.append(y2s[k]*np.sin(2.0577)-3.6)
             z3.append(z2s[k])
             k += 1
