@@ -1,25 +1,32 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+# Fixing random state for reproducibility
+np.random.seed(19680801)
 
-def ellips1(A, B):
-    phi = np.linspace(0, 2*np.pi, 500)
-    x2, y2, z2 = [], [], []
-    x1 = A * np.outer(phi, np.cos(phi))
-    y1 = B * np.outer(phi, np.sin(phi))
-    z1 = np.outer(phi/8, np.ones(np.size(phi)))
-    n = 0
-    for i in (A * np.cos(phi)):
-        if -0.6 <= i:
-            x2.append(i)
-            y2.append(y1[n])
-            z2.append(z1[n])
-            n += 1
-        else:
-            n += 1
-    ax.plot_surface(x2, y2, z2)
-    plt.savefig('3d_dich.png')
 
-for j in np.linspace(0, 2, 500):
-    ellips1(j, j/1.05)
+def randrange(n, vmin, vmax):
+    """
+    Helper function to make an array of random numbers having shape (n, )
+    with each number distributed Uniform(vmin, vmax).
+    """
+    return (vmax - vmin)*np.random.rand(n) + vmin
+
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+
+n = 100
+
+# For each set of style and range settings, plot n random points in the box
+# defined by x in [23, 32], y in [0, 100], z in [zlow, zhigh].
+for m, zlow, zhigh in [(',', -50, -25), (',', -30, -5)]:
+    xs = randrange(n, 23, 32)
+    ys = randrange(n, 0, 100)
+    zs = randrange(n, zlow, zhigh)
+    ax.scatter(xs, ys, zs, marker=m)
+
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
+
+plt.savefig('3d_dich.png')
