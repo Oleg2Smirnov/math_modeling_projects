@@ -57,17 +57,17 @@ for m, zlow, zhigh in [(',', -1, 1)]:
             y2.append((x2s[k]**2+y2s[k]**2)**0.5*np.sin(np.arctan(y2s[k]/x2s[k])+2.13)-1.8)
             z2.append(z2s[k])
 
-            x3.append(x2s[k]*np.cos(2.0577)-1.9)
-            y3.append(y2s[k]*np.sin(2.0577)-3.6)
+            x3.append(((0.35-x2s[k])**2+y2s[k]**2)**0.5*np.cos(np.arctan(y2s[k]/(0.35-x2s[k]))+2.13)-1.7)
+            y3.append(((0.35-x2s[k])**2+y2s[k]**2)**0.5*np.sin(np.arctan(y2s[k]/(0.35-x2s[k]))+2.13)-4.1)
             z3.append(z2s[k])
             k += 1
         else:
             k += 1
 
     ax.scatter(xs, ys, zs, color='black')
-    ax.scatter(x1, y1, z1, color='black')
-    ax.scatter(x2, y2, z2, color='black')
-    ax.scatter(x3, y3, z3, color='black')
+    ax.scatter(x1, y1, z1, color='yellow')
+    ax.scatter(x2, y2, z2, color='lime')
+    ax.scatter(x3, y3, z3, color='red')
 
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
