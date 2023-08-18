@@ -11,9 +11,12 @@ fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 n = 0
 k = 0
-N = 1000
+a = 0
+N = 2000
 xs, ys, zs = [], [], []
+x1, y1, z1 = [], [], []
 x2, y2, z2 = [], [], []
+x3, y3, z3 = [], [], []
 
 phi = np.linspace(0, 2*np.pi, N)
 theta = np.linspace(0, 2*np.pi, N//5)
@@ -29,24 +32,34 @@ for m, zlow, zhigh in [(',', -1, 1)]:
             n += 1
         else:
             n += 1
-
-
     
 for m, zlow, zhigh in [(',', -1, 1)]:
-    x1 = randrange(N//5, -1*np.cos(theta)-4.1, 1*np.cos(theta)-4.1)
-    y1 = randrange(N//5, -1*np.sin(theta)-4.1, 1*np.sin(theta)-4.1)
-    z1 = randrange(N//5, zlow, zhigh)
+    x1s = randrange(N//5, -1, 1)
+    y1s = randrange(N//5, -1, 1)
+    z1s = randrange(N//5, zlow, zhigh)
+    for i in x1s:
+        if x1s[a]**2 + y1s[a]**2 <= 1:
+            x1.append(x1s[a]-4.1)
+            y1.append(y1s[a]-4.6)
+            z1.append(z1s[a])
+            a += 1
+        else:
+            a += 1
+
 
 for m, zlow, zhigh in [(',', -1, 1)]:
     x2s = randrange(N, 0, 0.35)
     y2s = randrange(N, 0, 2.5)
     z2s = randrange(N, zlow, zhigh)
-
-    for i in x2:
-        if (x2s[k]**2 + y2s[k]**2)**0.5 <= 2*y2s[k]/x2s[k]*2.5/0.35/(y2s[k]+2.5/0.35)/
-            x2.append((x2s[k]+0.1)*np.cos(2.14326))
-            y2.append((y2s[k]+3.5)*np.sin(2.14326))
+    for i in x2s:
+        if y2s[k]/(0.35-x2s[k]) <= 2.5/3.5:
+            x2.append((x2s[k])*np.cos(2.13)-2.9)
+            y2.append((y2s[k])*np.sin(2.13)-1.8)
             z2.append(z2s[k])
+
+            x3.append(-x2s[k]*np.cos(2.0577)-1.9)
+            y3.append(y2s[k]*np.sin(2.0577)-3.6)
+            z3.append(z2s[k])
             k += 1
         else:
             k += 1
@@ -54,6 +67,8 @@ for m, zlow, zhigh in [(',', -1, 1)]:
     ax.scatter(xs, ys, zs, color='black')
     ax.scatter(x1, y1, z1, color='black')
     ax.scatter(x2, y2, z2, color='black')
+    ax.scatter(x3, y3, z3, color='black')
+
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
 ax.set_zlabel('Z Label')
