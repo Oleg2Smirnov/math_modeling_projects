@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Fixing random state for reproducibility
 np.random.seed(19680801)
 
 def randrange(N, vmin, vmax):
@@ -13,15 +12,17 @@ n = 0
 k = 0
 a = 0
 b = 0
-N = 3000
+c = 0
+N = 1000
 xs, ys, zs = [], [], []
 x1, y1, z1 = [], [], []
 x2, y2, z2 = [], [], []
 x3, y3, z3 = [], [], []
 x4, y4, z4 = [], [], []
+x5, y5, z5 = [], [], []
 
 phi = np.linspace(0, 2*np.pi, N)
-theta = np.linspace(0, 2*np.pi, N//5)
+
 for m, zlow, zhigh in [(',', -1, 1)]:
     xss = randrange(N, -3.7*np.cos(phi), 3.7*np.cos(phi))
     yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
@@ -35,7 +36,6 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     
-for m, zlow, zhigh in [(',', -1, 1)]:
     x1s = randrange(N//5, -1, 1)
     y1s = randrange(N//5, -1, 1)
     z1s = randrange(N//5, zlow, zhigh)
@@ -48,8 +48,6 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             a += 1
 
-
-for m, zlow, zhigh in [(',', -1, 1)]:
     x2s = randrange(N, 0, 0.35)
     y2s = randrange(N, 0, 2.6)
     z2s = randrange(N, zlow, zhigh)
@@ -75,11 +73,24 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         z4.append(z4s[b])
         b += 1
 
-    ax.scatter(xs, ys, zs, color='black')
-    ax.scatter(x1, y1, z1, color='yellow')
-    ax.scatter(x2, y2, z2, color='lime')
-    ax.scatter(x3, y3, z3, color='red')
-    ax.scatter(x4, y4, z4, color='darkviolet')
+    xs5 = randrange(N, -4.4*np.cos(phi), 4.4*np.cos(phi))
+    ys5 = randrange(N, -5*np.sin(phi), 5*np.sin(phi))
+    zs5 = randrange(N, zlow, zhigh)
+    for i in xs5:
+        if i >= -3.6:
+            x5.append(xss[c])
+            y5.append(yss[c])
+            z5.append(zss[c])
+            c += 1
+        else:
+            c += 1
+
+    ax.scatter(xs, ys, zs, color='red')
+    ax.scatter(x1, y1, z1, color='fuchsia')
+    ax.scatter(x2, y2, z2, color='fuchsia')
+    ax.scatter(x3, y3, z3, color='fuchsia')
+    ax.scatter(x4, y4, z4, color='fuchsia')
+    ax.scatter(x5, y5, z5, color='b')
 
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
