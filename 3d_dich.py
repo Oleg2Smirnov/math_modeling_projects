@@ -49,10 +49,10 @@ for m, zlow, zhigh in [(',', -1, 1)]:
 
 for m, zlow, zhigh in [(',', -1, 1)]:
     x2s = randrange(N, 0, 0.35)
-    y2s = randrange(N, 0, 2.5)
+    y2s = randrange(N, 0, 2.6)
     z2s = randrange(N, zlow, zhigh)
     for i in x2s:
-        if y2s[k]/(0.35-x2s[k]) <= 2.5/3.5:
+        if y2s[k]/(0.35-x2s[k]) <= 2.6/0.35:
             x2.append((x2s[k])*np.cos(2.13)-2.9)
             y2.append((y2s[k])*np.sin(2.13)-1.8)
             z2.append(z2s[k])
