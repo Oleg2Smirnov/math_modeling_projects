@@ -12,11 +12,13 @@ ax = fig.add_subplot(projection='3d')
 n = 0
 k = 0
 a = 0
+b = 0
 N = 1000
 xs, ys, zs = [], [], []
 x1, y1, z1 = [], [], []
 x2, y2, z2 = [], [], []
 x3, y3, z3 = [], [], []
+x4, y4, z4 = [], [], []
 
 phi = np.linspace(0, 2*np.pi, N)
 theta = np.linspace(0, 2*np.pi, N//5)
@@ -63,11 +65,21 @@ for m, zlow, zhigh in [(',', -1, 1)]:
             k += 1
         else:
             k += 1
+    
+    x4s = randrange(N, 0, 2.5)
+    y4s = randrange(N, 0, 2)
+    z4s = randrange(N, zlow, zhigh)
+    for i in x4s:
+        x4.append((x4s[b]**2+y4s[b]**2)**0.5*np.cos(0.56+np.arctan(y4s[b]/x4s[b]))-4.05)
+        y4.append((x4s[b]**2+y4s[b]**2)**0.5*np.sin(0.56+np.arctan(y4s[b]/x4s[b]))-4.9)
+        z4.append(z4s[b])
+        b += 1
 
     ax.scatter(xs, ys, zs, color='black')
     ax.scatter(x1, y1, z1, color='yellow')
     ax.scatter(x2, y2, z2, color='lime')
     ax.scatter(x3, y3, z3, color='red')
+    ax.scatter(x4, y4, z4, color='darkviolet')
 
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
