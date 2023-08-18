@@ -13,7 +13,9 @@ ax = fig.add_subplot(projection='3d')
 n = 0
 N = 1000
 xs, ys, zs = [], [], []
+
 phi = np.linspace(0, 2*np.pi, N)
+theta = np.linspace(0, 2*np.pi, N//5)
 for m, zlow, zhigh in [(',', -1, 1)]:
     xss = randrange(N, -3.7*np.cos(phi), 3.7*np.cos(phi))
     yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
@@ -30,9 +32,9 @@ for m, zlow, zhigh in [(',', -1, 1)]:
 
     
 for m, zlow, zhigh in [(',', -1, 1)]:
-    x1 = randrange(N, -1*np.cos(phi)-4.1, 1*np.cos(phi)-4.1)
-    y1 = randrange(N, -1*np.sin(phi)-4.1, 1*np.sin(phi)-4.1)
-    z1 = randrange(N, zlow, zhigh)
+    x1 = randrange(N//5, -1*np.cos(theta)-4.1, 1*np.cos(theta)-4.1)
+    y1 = randrange(N//5, -1*np.sin(theta)-4.1, 1*np.sin(theta)-4.1)
+    z1 = randrange(N//5, zlow, zhigh)
 
     ax.scatter(xs, ys, zs, color='black')
     ax.scatter(x1, y1, z1, color='black')
