@@ -1,26 +1,44 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+# Fixing random state for reproducibility
+np.random.seed(19680801)
 
-x2, y2, z2 = [], [], []
 
-def ellips1(A, B):
-    phi = np.linspace(0, 2*np.pi, 500)
-    x2, y2, z2 = [], [], []
-    x1 = A * np.outer(phi, np.cos(phi))
-    y1 = B * np.outer(phi, np.sin(phi))
-    z1 = np.outer(phi/8, np.ones(np.size(phi)))
-    n = 0
-    for i in (A * phi*np.cos(phi)):
-        if -0.6 <= i:
-            x2.append(x1[i])
-            y2.append(y1[n])
-            z2.append(z1[n])
+def randrange(N, vmin, vmax):
+    return (vmax - vmin)*np.random.rand(N) + vmin
+
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+n = 0
+N = 1000
+xs, ys, zs = [], [], []
+phi = np.linspace(0, 2*np.pi, 1000)
+for m, zlow, zhigh in [(',', -1, 1)]:
+    xss = randrange(N, -3.7*np.cos(phi), 3.7*np.cos(phi))
+    yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
+    zss = randrange(N, zlow, zhigh)
+    for i in xss:
+        if i >= -3.2:
+            xs.append(xss[n])
+            ys.append(yss[n])
+            zs.append(zss[n])
             n += 1
         else:
             n += 1
-    ax.plot_surface(x2, y2, z2)
-    plt.savefig('3d_dich.png')
-for j in np.linspace(0, 2, 500):
-    ellips1(j, j/1.05)
+
+
+    
+for m, zlow, zhigh in [(',', -1, 1)]:
+    x1 = randrange(N, -1*np.cos(phi)-4.1, 1*np.cos(phi)-4.1)
+    y1 = randrange(N, -1*np.sin(phi)-4.1, 1*np.sin(phi)-4.1)
+    z1 = randrange(N, zlow, zhigh)
+
+    ax.scatter(xs, ys, zs, color='black')
+    ax.scatter(x1, y1, z1, color='black')
+
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
+
+plt.savefig('3d_dich.png')
