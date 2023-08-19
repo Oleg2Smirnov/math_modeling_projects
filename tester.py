@@ -10,12 +10,6 @@ fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 n = 0
 k = 0
-a = 0
-b = 0
-c = 0
-d = 0
-e = 0
-
 N = 10000
 xs, ys, zs = [], [], []
 x1, y1, z1 = [], [], []
@@ -25,7 +19,6 @@ x4, y4, z4 = [], [], []
 x5, y5, z5 = [], [], []
 x6, y6, z6 = [], [], []
 x7, y7, z7 = [], [], []
-
 
 for m, zlow, zhigh in [(',', -1, 1)]:
     xss = randrange(N, -3.7, 3.7)
@@ -39,80 +32,79 @@ for m, zlow, zhigh in [(',', -1, 1)]:
             n += 1
         else:
             n += 1
-
+    n = k
     x1s = randrange(N//5, -1, 1)
     y1s = randrange(N//5, -1, 1)
     z1s = randrange(N//5, 0, 0.1)
     for i in x1s:
-        if x1s[a]**2 + y1s[a]**2 <= 1:
-            x1.append(x1s[a]-4.5)
-            y1.append(y1s[a]-4.1)
-            z1.append(z1s[a])
-            a += 1
+        if x1s[n]**2 + y1s[n]**2 <= 1:
+            x1.append(x1s[n]-4.5)
+            y1.append(y1s[n]-4.1)
+            z1.append(z1s[n])
+            n += 1
         else:
-            a += 1
-
+            n += 1
+    n = k
     x2s = randrange(N, 0, 0.35)
     y2s = randrange(N, 0, 2.6)
     z2s = randrange(N, 0, 0.1)
     for i in x2s:
-        if y2s[k]/(0.35-x2s[k]) <= 2.6/0.35:
-            x2.append((x2s[k]**2+y2s[k]**2)**0.5*np.cos(np.arctan(y2s[k]/x2s[k])+2.13)-2.9)
-            y2.append((x2s[k]**2+y2s[k]**2)**0.5*np.sin(np.arctan(y2s[k]/x2s[k])+2.13)-1.8)
-            z2.append(z2s[k]+4)
+        if y2s[n]/(0.35-x2s[n]) <= 2.6/0.35:
+            x2.append((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13)-2.9)
+            y2.append((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13)-1.8)
+            z2.append(z2s[n]+4)
 
-            x3.append(((0.35-x2s[k])**2+y2s[k]**2)**0.5*np.cos(np.arctan(y2s[k]/(0.35-x2s[k]))+2.13)-1.7)
-            y3.append(((0.35-x2s[k])**2+y2s[k]**2)**0.5*np.sin(np.arctan(y2s[k]/(0.35-x2s[k]))+2.13)-4.1)
-            z3.append(z2s[k])
-            k += 1
+            x3.append(((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13)-1.7)
+            y3.append(((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13)-4.1)
+            z3.append(z2s[n])
+            n += 1
         else:
-            k += 1
-    
+            n += 1
+    n = k
     x4s = randrange(N, 0, 2.5)
     y4s = randrange(N, 0, 2)
     z4s = randrange(N, 0, 0.1)
     for i in x4s:
-        x4.append((x4s[b]**2+y4s[b]**2)**0.5*np.cos(0.56+np.arctan(y4s[b]/x4s[b]))-4.05)
-        y4.append((x4s[b]**2+y4s[b]**2)**0.5*np.sin(0.56+np.arctan(y4s[b]/x4s[b]))-4.9)
-        z4.append(z4s[b])
-        b += 1
-
+        x4.append((x4s[n]**2+y4s[n]**2)**0.5*np.cos(0.56+np.arctan(y4s[n]/x4s[n]))-4.05)
+        y4.append((x4s[n]**2+y4s[n]**2)**0.5*np.sin(0.56+np.arctan(y4s[n]/x4s[n]))-4.9)
+        z4.append(z4s[n])
+        n += 1
+    n = k
     xs5 = randrange(N, -4.4, 4.4)
     ys5 = randrange(N, -5, 5)
     zs5 = randrange(N, 0, 0.1)
     for i in xs5:
-        if i >= -3.6 and (xs5[c]**2)/(4.4**2) + (ys5[c]**2)/(5**2) <= 1:
-            x5.append(xs5[c])
-            y5.append(ys5[c])
-            z5.append(zs5[c])
-            c += 1
+        if i >= -3.6 and (xs5[n]**2)/(4.4**2) + (ys5[n]**2)/(5**2) <= 1:
+            x5.append(xs5[n])
+            y5.append(ys5[n])
+            z5.append(zs5[n])
+            n += 1
         else:
-            c += 1
-
+            n += 1
+    n = k
     x6s = randrange(N, 0, 3.2)
     y6s = randrange(N, 0, 0.7)
     z6s = randrange(N, 0, 0.1)    
     for i in x6s:
-        if y6s[d]/(3.2-x6s[d]) <= 0.7/3.2:
-            x6.append(x6s[d]-3.5)
-            y6.append(y6s[d]-5.2)
-            z6.append(z6s[d])
-            d += 1
+        if y6s[n]/(3.2-x6s[n]) <= 0.7/3.2:
+            x6.append(x6s[n]-3.5)
+            y6.append(y6s[n]-5.2)
+            z6.append(z6s[n])
+            n += 1
         else:
-            d += 1
-
+            n += 1
+    n = k
     x7s = randrange(N, 0, 1.1)
     y7s = randrange(N, 0, 0.7)
     z7s = randrange(N, 0, 0.1)
     for i in x7s:
-        if y7s[e]/x7s[e] <= 0.7/1:
-            x7.append(x7s[e]-4.7)
-            y7.append(y7s[e]-5.3)
-            z7.append(z7s[e])
-            e += 1
+        if y7s[n]/x7s[n] <= 0.7/1:
+            x7.append(x7s[n]-4.7)
+            y7.append(y7s[n]-5.3)
+            z7.append(z7s[n])
+            n += 1
         else:
-            e += 1
-
+            n += 1
     ax.scatter(xs, ys, zs, color='black')
     ax.scatter(x1, y1, z1, color='fuchsia')
     ax.scatter(x2, y2, z2, color='darkviolet')
