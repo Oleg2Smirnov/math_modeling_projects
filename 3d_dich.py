@@ -30,12 +30,20 @@ def barnard_68(N):
             if i >= -3.2  and (xss[n]**2)/(3.7**2) + (yss[n]**2)/(4.3**2) <= 1:
                 a = xss[n]
                 b = yss[n]
+                c = zss[n]
                 if a < 0:
                     xs.append((a**2+b**2)**0.5*np.cos(3.14+0.4636+np.arctan(b/a)))
                     ys.append((a**2+b**2)**0.5*np.sin(3.14+0.4636+np.arctan(b/a)))
                     a = xs[h]
                     b = ys[h]
-                    zs.append(zss[n])
+                    if a >= 0 and b >= 0 and b/a >= 1/3:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b <= 0 and a/b >= 3:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b >= 0:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    else:
+                        zs.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                     n += 1
                     h += 1
                 else:
@@ -43,7 +51,14 @@ def barnard_68(N):
                     ys.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a)))
                     a = xs[h]
                     b = ys[h]
-                    zs.append(zss[n])
+                    if a >= 0 and b >= 0 and b/a >= 1/3:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b <= 0 and a/b >= 3:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b >= 0:
+                        zs.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    else:
+                        zs.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                     n += 1
                     h += 1
             else:
@@ -59,7 +74,15 @@ def barnard_68(N):
                 y1.append((y1s[n]-5.326))
                 a = x1[h]
                 b = y1[h]
-                z1.append(z1s[n])
+                c = z1s[h]
+                if a >= 0 and b >= 0 and b/a >= 1/3:
+                    z1.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b <= 0 and a/b >= 3:
+                    z1.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b >= 0:
+                    z1.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                else:
+                    z1.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                 n += 1
                 h += 1
             else:
@@ -75,13 +98,28 @@ def barnard_68(N):
                 y2.append(((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-2.84))
                 a = x2[h]
                 b = y2[h]
-                z2.append(z2s[n])
+                c = z2s[n]
+                if a >= 0 and b >= 0 and b/a >= 1/3:
+                    z2.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b <= 0 and a/b >= 3:
+                    z2.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b >= 0:
+                    z2.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                else:
+                    z2.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
 
                 x3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.4636)+0.317))
                 y3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.4636)-4.43))
                 a = x3[h]
                 b = y3[h]
-                z3.append(z2s[n])
+                if a >= 0 and b >= 0 and b/a >= 1/3:
+                    z3.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b <= 0 and a/b >= 3:
+                    z3.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b >= 0:
+                    z3.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                else:
+                    z3.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                 n += 1
                 h += 1
             else:
@@ -96,7 +134,15 @@ def barnard_68(N):
             y4.append(((x4s[n]**2+y4s[n]**2)**0.5*np.sin(0.56+0.4636+np.arctan(y4s[n]/x4s[n]))-5.93))
             a = x4[h]
             b = y4[h]
-            z4.append(z4s[n])
+            c = z4s[n]
+            if a >= 0 and b >= 0 and b/a >= 1/3:
+                z4.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+            elif a <= 0 and b <= 0 and a/b >= 3:
+                z4.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+            elif a <= 0 and b >= 0:
+                z4.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+            else:
+                z4.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
             n += 1
             h += 1
         n = k
@@ -113,7 +159,15 @@ def barnard_68(N):
                     y5.append((a**2+b**2)**0.5*np.sin(0.4636+3.14+np.arctan(b/a)))
                     a = x5[h]
                     b = y5[h]
-                    z5.append(zs5[n])
+                    c = zs5[n]
+                    if a >= 0 and b >= 0 and b/a >= 1/3:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b <= 0 and a/b >= 3:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b >= 0:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    else:
+                        z5.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                     n += 1
                     h += 1
                 else:                   
@@ -121,7 +175,15 @@ def barnard_68(N):
                     y5.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a)))
                     a = x5[h]
                     b = y5[h]
-                    z5.append(zs5[n])
+                    c = zs5[n]
+                    if a >= 0 and b >= 0 and b/a >= 1/3:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b <= 0 and a/b >= 3:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    elif a <= 0 and b >= 0:
+                        z5.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                    else:
+                        z5.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                     n += 1
                     h += 1
             else:
@@ -139,7 +201,15 @@ def barnard_68(N):
                 y6.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a))-6.324)
                 a = x6[h]
                 b = y6[h]
-                z6.append(z6s[n])
+                c = z6s[n]
+                if a >= 0 and b >= 0 and b/a >= 1/3:
+                    z6.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b <= 0 and a/b >= 3:
+                    z6.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b >= 0:
+                    z6.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                else:
+                    z6.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                 n += 1
                 h += 1
             else:
@@ -157,7 +227,15 @@ def barnard_68(N):
                 y7.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a))-6.844)
                 a = x7[h]
                 b = y7[h]
-                z7.append(z7s[n])
+                c = z7s[n]
+                if a >= 0 and b >= 0 and b/a >= 1/3:
+                    z7.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b <= 0 and a/b >= 3:
+                    z7.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                elif a <= 0 and b >= 0:
+                    z7.append(c + (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
+                else:
+                    z7.append(c - (a**2+b**2)**0.5 * np.cos(1.249-np.arctan(b/a)))
                 n += 1
                 h += 1
             else:
