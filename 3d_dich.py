@@ -31,19 +31,19 @@ def barnard_68(N):
                 a = xss[n]
                 b = yss[n]
                 if a < 0:
-                    xs.append((a**2+b**2)**0.5*np.cos(3.14+0.7854+np.arctan(b/a)))
-                    ys.append((a**2+b**2)**0.5*np.sin(3.14+0.7854+np.arctan(b/a)))
+                    xs.append((a**2+b**2)**0.5*np.cos(3.14+0.4636+np.arctan(b/a)))
+                    ys.append((a**2+b**2)**0.5*np.sin(3.14+0.4636+np.arctan(b/a)))
                     a = xs[h]
                     b = ys[h]
-                    zs.append(zss[n]-(a+b)/(2**0.5))
+                    zs.append(zss[n])
                     n += 1
                     h += 1
                 else:
-                    xs.append((a**2+b**2)**0.5*np.cos(0.7854+np.arctan(b/a)))
-                    ys.append((a**2+b**2)**0.5*np.sin(0.7854+np.arctan(b/a)))
+                    xs.append((a**2+b**2)**0.5*np.cos(0.4636+np.arctan(b/a)))
+                    ys.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a)))
                     a = xs[h]
                     b = ys[h]
-                    zs.append(zss[n]-(a+b)/(2**0.5))
+                    zs.append(zss[n])
                     n += 1
                     h += 1
             else:
@@ -55,38 +55,52 @@ def barnard_68(N):
         z1s = randrange(N*100//2089, 0, 0.3)
         for i in x1s:
             if x1s[n]**2 + y1s[n]**2 <= 1:
-                x1.append((x1s[n]-0.5655))
-                y1.append((y1s[n]-5.8))
-                z1.append(z1s[n]-(a+b)/(2**0.5))
+                x1.append((x1s[n]-2.37))
+                y1.append((y1s[n]-5.326))
+                a = x1[h]
+                b = y1[h]
+                z1.append(z1s[n])
                 n += 1
+                h += 1
             else:
                 n += 1
         n = k
+        h = k
         x2s = randrange(N*1000//91825, 0, 0.35)
         y2s = randrange(N*1000//91825, 0, 2.6)
         z2s = randrange(N*1000//91825, 0, 0.3)
         for i in x2s:
             if y2s[n]/(0.35-x2s[n]) <= 2.6/0.35:
-                x2.append(((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13+0.7854)-0.777))
-                y2.append(((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13+0.7854)-3.31))
-                z2.append(z2s[n]+400)
+                x2.append(((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-1.7526))
+                y2.append(((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-2.84))
+                a = x2[h]
+                b = y2[h]
+                z2.append(z2s[n])
 
-                x3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.7854)+1.7))
-                y3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.7854)-4.1))
+                x3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.4636)+0.317))
+                y3.append((((0.35-x2s[n])**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/(0.35-x2s[n]))+2.13+0.4636)-4.43))
+                a = x3[h]
+                b = y3[h]
                 z3.append(z2s[n])
                 n += 1
+                h += 1
             else:
                 n += 1
         n = k
+        h = k
         x4s = randrange(N*100//1671, 0, 2.5)
         y4s = randrange(N*100//1671, 0, 2)
         z4s = randrange(N*100//1671, 0, 0.3)
         for i in x4s:
-            x4.append(((x4s[n]**2+y4s[n]**2)**0.5*np.cos(0.56+0.7854+np.arctan(y4s[n]/x4s[n]))+0.39))
-            y4.append(((x4s[n]**2+y4s[n]**2)**0.5*np.sin(0.56+0.7854+np.arctan(y4s[n]/x4s[n]))-6.12))
+            x4.append(((x4s[n]**2+y4s[n]**2)**0.5*np.cos(0.56+0.4636+np.arctan(y4s[n]/x4s[n]))-1.566))
+            y4.append(((x4s[n]**2+y4s[n]**2)**0.5*np.sin(0.56+0.4636+np.arctan(y4s[n]/x4s[n]))-5.93))
+            a = x4[h]
+            b = y4[h]
             z4.append(z4s[n])
             n += 1
+            h += 1
         n = k
+        h = k
         xs5 = randrange(N*10000//94955, -4.4, 4.4)
         ys5 = randrange(N*10000//94955, -5, 5)
         zs5 = randrange(N*10000//94955, 0, 0.3)
@@ -95,18 +109,25 @@ def barnard_68(N):
                 a = xs5[n]
                 b = ys5[n]
                 if a < 0:
-                    x5.append((a**2+b**2)**0.5*np.cos(0.7854+3.14+np.arctan(b/a)))
-                    y5.append((a**2+b**2)**0.5*np.sin(0.7854+3.14+np.arctan(b/a)))
+                    x5.append((a**2+b**2)**0.5*np.cos(0.4636+3.14+np.arctan(b/a)))
+                    y5.append((a**2+b**2)**0.5*np.sin(0.4636+3.14+np.arctan(b/a)))
+                    a = x5[h]
+                    b = y5[h]
                     z5.append(zs5[n])
                     n += 1
+                    h += 1
                 else:                   
-                    x5.append((a**2+b**2)**0.5*np.cos(0.7854+np.arctan(b/a)))
-                    y5.append((a**2+b**2)**0.5*np.sin(0.7854+np.arctan(b/a)))
+                    x5.append((a**2+b**2)**0.5*np.cos(0.4636+np.arctan(b/a)))
+                    y5.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a)))
+                    a = x5[h]
+                    b = y5[h]
                     z5.append(zs5[n])
                     n += 1
+                    h += 1
             else:
                 n += 1
         n = k
+        h = k
         x6s = randrange(N//373, 0, 3.2)
         y6s = randrange(N//373, 0, 0.7)
         z6s = randrange(N//373, 0, 0.3)    
@@ -114,13 +135,17 @@ def barnard_68(N):
             if y6s[n]/(3.2-x6s[n]) <= 0.7/3.2:
                 a = x6s[n]
                 b = y6s[n]
-                x6.append((a**2+b**2)**0.5*np.cos(0.7854+np.arctan(b/a))+1.2)
-                y6.append((a**2+b**2)**0.5*np.sin(0.7854+np.arctan(b/a))-6.27)
+                x6.append((a**2+b**2)**0.5*np.cos(0.4636+np.arctan(b/a))-0.8443)
+                y6.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a))-6.324)
+                a = x6[h]
+                b = y6[h]
                 z6.append(z6s[n])
                 n += 1
+                h += 1
             else:
                 n += 1
         n = k
+        h = k
         x7s = randrange(N//1085, 0, 1.1)
         y7s = randrange(N//1085, 0, 0.7)
         z7s = randrange(N//1085, 0, 0.3)
@@ -128,20 +153,24 @@ def barnard_68(N):
             if y7s[n]/x7s[n] <= 0.7/1:
                 a = x7s[n]
                 b = y7s[n]
-                x7.append((a**2+b**2)**0.5*np.cos(0.7854+np.arctan(b/a))+0.3716)
-                y7.append((a**2+b**2)**0.5*np.sin(0.7854+np.arctan(b/a))-7.09)
+                x7.append((a**2+b**2)**0.5*np.cos(0.4636+np.arctan(b/a))-1.89)
+                y7.append((a**2+b**2)**0.5*np.sin(0.4636+np.arctan(b/a))-6.844)
+                a = x7[h]
+                b = y7[h]
                 z7.append(z7s[n])
                 n += 1
+                h += 1
             else:
                 n += 1
+
     ax.scatter(xs, ys, zs, color='black')
-    ax.scatter(x1, y1, z1, color='b')
-    ax.scatter(x2, y2, z2, color='lime')
-    ax.scatter(x3, y3, z3, color='darkviolet')
-    ax.scatter(x4, y4, z4, color='fuchsia')
-    ax.scatter(x5, y5, z5, color='red')
-    ax.scatter(x6, y6, z6, color='yellow')
-    ax.scatter(x7, y7, z7, color='c')
+    ax.scatter(x1, y1, z1, color='black')
+    ax.scatter(x2, y2, z2, color='black')
+    ax.scatter(x3, y3, z3, color='black')
+    ax.scatter(x4, y4, z4, color='black')
+    ax.scatter(x5, y5, z5, color='black')
+    ax.scatter(x6, y6, z6, color='black')
+    ax.scatter(x7, y7, z7, color='black')
 
     ax.set_xlabel('X Label')
     ax.set_ylabel('Y Label')
