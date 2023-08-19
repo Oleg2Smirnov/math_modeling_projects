@@ -13,6 +13,8 @@ k = 0
 a = 0
 b = 0
 c = 0
+d = 0
+
 N = 1000
 xs, ys, zs = [], [], []
 x1, y1, z1 = [], [], []
@@ -20,6 +22,7 @@ x2, y2, z2 = [], [], []
 x3, y3, z3 = [], [], []
 x4, y4, z4 = [], [], []
 x5, y5, z5 = [], [], []
+x6, y6, z6 = [], [], []
 
 phi = np.linspace(0, 2*np.pi, N)
 
@@ -28,14 +31,14 @@ for m, zlow, zhigh in [(',', -1, 1)]:
     yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
     zss = randrange(N, zlow, zhigh)
     for i in xss:
-        if i >= -3.2:
+        if i >= -3.2  and (xss[n]**2)/(4.3**2) + (yss[n]**2)/(3.7**2) <= 1:
             xs.append(xss[n])
             ys.append(yss[n])
             zs.append(zss[n])
             n += 1
         else:
             n += 1
-    
+
     x1s = randrange(N//5, -1, 1)
     y1s = randrange(N//5, -1, 1)
     z1s = randrange(N//5, zlow, zhigh)
@@ -85,12 +88,25 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             c += 1
 
-    ax.scatter(xs, ys, zs, color='red')
+        xss = randrange(N, -3.7*np.cos(phi), 3.7*np.cos(phi))
+    yss = randrange(N, -4.3*np.sin(phi), 4.3*np.sin(phi))
+    zss = randrange(N, zlow, zhigh)
+    for i in xss:
+        if i >= -3.2  and (xss[n]**2)/(4.3**2) + (yss[n]**2)/(3.7**2) <= 1:
+            xs.append(xss[n])
+            ys.append(yss[n])
+            zs.append(zss[n])
+            n += 1
+        else:
+            n += 1
+
+    ax.scatter(xs, ys, zs, color='fuchsia')
     ax.scatter(x1, y1, z1, color='fuchsia')
     ax.scatter(x2, y2, z2, color='fuchsia')
     ax.scatter(x3, y3, z3, color='fuchsia')
     ax.scatter(x4, y4, z4, color='fuchsia')
-    ax.scatter(x5, y5, z5, color='b')
+    ax.scatter(x5, y5, z5, color='fuchsia')
+    ax.scatter(x6, y6, z6, color='b')
 
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
