@@ -21,9 +21,9 @@ x6, y6, z6 = [], [], []
 x7, y7, z7 = [], [], []
 
 for m, zlow, zhigh in [(',', -1, 1)]:
-    xss = randrange(N, -3.7, 3.7)
-    yss = randrange(N, -4.3, 4.3)
-    zss = randrange(N, 0, 0.1)
+    xss = randrange(N//1313*1000, -3.7, 3.7)
+    yss = randrange(N//1313*1000, -4.3, 4.3)
+    zss = randrange(N//1313*1000, 0, 0.1)
     for i in xss:
         if i >= -3.2  and (xss[n]**2)/(3.7**2) + (yss[n]**2)/(4.3**2) <= 1:
             xs.append(xss[n])
@@ -33,9 +33,9 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     n = k
-    x1s = randrange(N//5, -1, 1)
-    y1s = randrange(N//5, -1, 1)
-    z1s = randrange(N//5, 0, 0.1)
+    x1s = randrange(N//2089*100, -1, 1)
+    y1s = randrange(N//2089*100, -1, 1)
+    z1s = randrange(N//2089*100, 0, 0.1)
     for i in x1s:
         if x1s[n]**2 + y1s[n]**2 <= 1:
             x1.append(x1s[n]-4.5)
@@ -45,9 +45,9 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     n = k
-    x2s = randrange(N, 0, 0.35)
-    y2s = randrange(N, 0, 2.6)
-    z2s = randrange(N, 0, 0.1)
+    x2s = randrange(N//91825*1000, 0, 0.35)
+    y2s = randrange(N//91825*1000, 0, 2.6)
+    z2s = randrange(N//91825*1000, 0, 0.1)
     for i in x2s:
         if y2s[n]/(0.35-x2s[n]) <= 2.6/0.35:
             x2.append((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13)-2.9)
@@ -61,18 +61,18 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     n = k
-    x4s = randrange(N, 0, 2.5)
-    y4s = randrange(N, 0, 2)
-    z4s = randrange(N, 0, 0.1)
+    x4s = randrange(N//1671*100, 0, 2.5)
+    y4s = randrange(N//1671*100, 0, 2)
+    z4s = randrange(N//1671*100, 0, 0.1)
     for i in x4s:
         x4.append((x4s[n]**2+y4s[n]**2)**0.5*np.cos(0.56+np.arctan(y4s[n]/x4s[n]))-4.05)
         y4.append((x4s[n]**2+y4s[n]**2)**0.5*np.sin(0.56+np.arctan(y4s[n]/x4s[n]))-4.9)
         z4.append(z4s[n])
         n += 1
     n = k
-    xs5 = randrange(N, -4.4, 4.4)
-    ys5 = randrange(N, -5, 5)
-    zs5 = randrange(N, 0, 0.1)
+    xs5 = randrange(N//94955*10000*5, -4.4, 4.4)
+    ys5 = randrange(N//94955*10000*5, -5, 5)
+    zs5 = randrange(N//94955*10000*5, 0, 0.1)
     for i in xs5:
         if i >= -3.6 and (xs5[n]**2)/(4.4**2) + (ys5[n]**2)/(5**2) <= 1:
             x5.append(xs5[n])
@@ -82,9 +82,9 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     n = k
-    x6s = randrange(N, 0, 3.2)
-    y6s = randrange(N, 0, 0.7)
-    z6s = randrange(N, 0, 0.1)    
+    x6s = randrange(N//373*5, 0, 3.2)
+    y6s = randrange(N//373*5, 0, 0.7)
+    z6s = randrange(N//373*5, 0, 0.1)    
     for i in x6s:
         if y6s[n]/(3.2-x6s[n]) <= 0.7/3.2:
             x6.append(x6s[n]-3.5)
@@ -94,9 +94,9 @@ for m, zlow, zhigh in [(',', -1, 1)]:
         else:
             n += 1
     n = k
-    x7s = randrange(N, 0, 1.1)
-    y7s = randrange(N, 0, 0.7)
-    z7s = randrange(N, 0, 0.1)
+    x7s = randrange(N//1085*5, 0, 1.1)
+    y7s = randrange(N//1085*5, 0, 0.7)
+    z7s = randrange(N//1085*5, 0, 0.1)
     for i in x7s:
         if y7s[n]/x7s[n] <= 0.7/1:
             x7.append(x7s[n]-4.7)
