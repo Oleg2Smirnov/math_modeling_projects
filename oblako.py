@@ -145,3 +145,14 @@ def barnard_68(N):
 N = int(input('Введите количество пикселей: '))
 
 barnard_68(N)
+
+
+
+        x2s = randrange(N*1000//91825, 0, 0.35)
+        y2s = randrange(N*1000//91825, 0, 2.6)
+        z2s = randrange(N*1000//91825, -0.15, 0.15)
+        for i in x2s:
+            if y2s[n]/(0.35-x2s[n]) <= 2.6/0.35:
+                x2.append((((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-1.7526))/6)
+                y2.append((((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)+1.2-2.84))/6)
+                z2.append((z2s[n]+y2s[n]-4.5)/6)
