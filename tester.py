@@ -107,13 +107,13 @@ def barnard_68(N):
             else:
                 n += 1
     ax.scatter(xs, ys, zs, color='black')
-    ax.scatter(x1, y1, z1, color='b')
-    ax.scatter(x2, y2, z2, color='lime')
-    ax.scatter(x3, y3, z3, color='darkviolet')
-    ax.scatter(x4, y4, z4, color='fuchsia')
-    ax.scatter(x5, y5, z5, color='red')
-    ax.scatter(x6, y6, z6, color='yellow')
-    ax.scatter(x7, y7, z7, color='c')
+    ax.scatter(x1, y1, z1, color='black')
+    ax.scatter(x2, y2, z2, color='black')
+    ax.scatter(x3, y3, z3, color='black')
+    ax.scatter(x4, y4, z4, color='black')
+    ax.scatter(x5, y5, z5, color='black')
+    ax.scatter(x6, y6, z6, color='black')
+    ax.scatter(x7, y7, z7, color='black')
 
     ax.set_xlabel('X Label')
     ax.set_ylabel('Y Label')
@@ -125,3 +125,10 @@ def barnard_68(N):
 N = int(input('Введите количество пикселей: '))
 
 barnard_68(N)
+
+
+
+
+                x2.append((((x2s[n]**2+y2s[n]**2)**0.5*np.cos(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-1.7526))/6)
+                y2.append((((x2s[n]**2+y2s[n]**2)**0.5*np.sin(np.arctan(y2s[n]/x2s[n])+2.13+0.4636)-2.84))/6)
+                z2.append((z2s[n]+y2s[n]-4.5)/6)
