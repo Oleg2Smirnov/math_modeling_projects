@@ -143,6 +143,13 @@ def barnard_68():
         ax.set_ylabel('Y Label')
         ax.set_zlabel('Z Label')
 
-        plt.savefig('3d_dich.png')
+        plt.savefig('da_3d_dich.png')
 
 barnard_68()
+
+coords = []
+
+for j in range(1, 8, 1):
+    if j == 1:
+        for i in range(0, len(x1), 1):
+            coords.append(np.ndarray(x1[i], y1[i], z1[i]))
