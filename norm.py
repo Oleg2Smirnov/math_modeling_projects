@@ -70,7 +70,7 @@ def barnard_68():
         for i in x4s:
             x4.append((((x4s[n]**2+y4s[n]**2)**0.5*np.cos(incs.gamma+incs.alpha+np.arctan(y4s[n]/x4s[n]))+incs.X4))/incs.miu)
             y4.append((((x4s[n]**2+y4s[n]**2)**0.5*np.sin(incs.gamma+incs.alpha+np.arctan(y4s[n]/x4s[n]))+incs.Y4))/incs.miu)
-            z4.append((z4s[n]+y4s[n]+incs.Z4)/incs.miu)
+            z4.append(z4s[n]/incs.miu)
             n += 1
         n = k
 
@@ -109,21 +109,44 @@ def barnard_68():
             if y7s[n]/x7s[n] <= incs.katety7/incs.katetx7:
                 a = x7s[n]
                 b = y7s[n]
-                x7.append(((a**2+b**2)**0.5*np.cos(incs.alpha+np.arctan(b/a))+incs.X7)/incs.miu)
-                y7.append(((a**2+b**2)**0.5*np.sin(incs.alpha+np.arctan(b/a))+incs.Y7)/incs.miu)
-                z7.append(z7s[n]/incs.miu + 100)
+                x7.append(((a**2+b**2)**0.5*np.cos(np.arctan(b/a))+incs.X7)/incs.miu)
+                y7.append(((a**2+b**2)**0.5*np.sin(np.arctan(b/a))+incs.Y7)/incs.miu)
+                z7.append(z7s[n]/incs.miu)
                 n += 1
             else:
                 n += 1
 
-        ax.scatter(x1, y1, z1, color='black', s=incs.s)
-        ax.scatter(x7, y7, z7, color='black', s=incs.s)
-
-        ax.set_xlabel('X Label')
-        ax.set_ylabel('Y Label')
-        ax.set_zlabel('Z Label')
-
-        plt.savefig('da_3d_dich.png')
-
+    coords = []
+    b = []
+    for j in np.arange(1, 8, 1):
+        if j == 1:
+            for i in np.arange(0, len(x1), 1):
+                a = [x1[i], y1[i], z1[i]]
+                coords.append(a)
+        if j == 2:
+            for i in np.arange(0, len(x2), 1):
+                a = [x2[i], y2[i], z2[i]]
+                coords.append(a)
+        if j == 3:
+            for i in np.arange(0, len(x3), 1):
+                a = [x3[i], y3[i], z3[i]]
+                coords.append(a)
+        if j == 4:
+            for i in np.arange(0, len(x4), 1):
+                a = [x4[i], y4[i], z4[i]]
+                coords.append(a)
+        if j == 5:
+            for i in np.arange(0, len(x5), 1):
+                a = [x5[i], y5[i], z5[i]]
+                coords.append(a)
+        if j == 6:
+            for i in np.arange(0, len(x6), 1):
+                a = [x6[i], y6[i], z6[i]]
+                coords.append(a)
+        if j == 7:
+            for i in np.arange(0, len(x7), 1):
+                a = [x7[i], y7[i], z7[i]]
+                coords.append(a)
+    return np.array(coords)
 
 barnard_68()
