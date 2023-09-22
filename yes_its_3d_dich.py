@@ -149,7 +149,3 @@ barnard_68()
 
 coords = []
 
-for j in range(1, 8, 1):
-    if j == 1:
-        for i in range(0, len(x1), 1):
-            coords.append(np.ndarray(x1[i], y1[i], z1[i]))

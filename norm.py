@@ -117,36 +117,43 @@ def barnard_68():
                 n += 1
 
     coords = []
-    b = []
+    U = []
     for j in np.arange(1, 8, 1):
         if j == 1:
             for i in np.arange(0, len(x1), 1):
                 a = [x1[i], y1[i], z1[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 2:
             for i in np.arange(0, len(x2), 1):
                 a = [x2[i], y2[i], z2[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 3:
             for i in np.arange(0, len(x3), 1):
                 a = [x3[i], y3[i], z3[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 4:
             for i in np.arange(0, len(x4), 1):
                 a = [x4[i], y4[i], z4[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 5:
             for i in np.arange(0, len(x5), 1):
                 a = [x5[i], y5[i], z5[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 6:
             for i in np.arange(0, len(x6), 1):
                 a = [x6[i], y6[i], z6[i]]
                 coords.append(a)
+                U.append(incs.V)
         if j == 7:
             for i in np.arange(0, len(x7), 1):
                 a = [x7[i], y7[i], z7[i]]
                 coords.append(a)
-    return np.array(coords)
+                U.append(incs.V)
+    return np.array(coords), np.array(U)
 
 barnard_68()
